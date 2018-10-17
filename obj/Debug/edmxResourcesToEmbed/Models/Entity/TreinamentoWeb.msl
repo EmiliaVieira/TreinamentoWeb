@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TreinamentoWebModelStoreContainer" CdmEntityContainer="treinamentowebEntities">
+    <EntitySetMapping Name="branches">
+      <EntityTypeMapping TypeName="TreinamentoWebModel.branches">
+        <MappingFragment StoreEntitySet="branches">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="merge_executed" ColumnName="merge_executed" />
+          <ScalarProperty Name="parent_branch" ColumnName="parent_branch" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="product" ColumnName="product" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="responsibles">
+      <EntityTypeMapping TypeName="TreinamentoWebModel.responsibles">
+        <MappingFragment StoreEntitySet="responsibles">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="branche_id" ColumnName="branche_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="TreinamentoWebModel.users">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="ldap_uid" ColumnName="ldap_uid" />
+          <ScalarProperty Name="ative" ColumnName="ative" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

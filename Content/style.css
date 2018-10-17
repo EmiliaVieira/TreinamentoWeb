@@ -1,0 +1,92 @@
+label{
+    font-size:18px;
+}
+
+.label-filter,.text-modal{
+    font-size:13px;
+}
+
+#span-titulo > h2{
+    display: inline-block;
+}
+
+.has-error {
+    color: #ff0500;
+}
+
+.color-back {
+    background-color: #000000;
+    color: #fff;
+}  
+
+.panel-default > .panel-heading-custom
+ {
+    background: #000000; 
+    color: #fff; 
+    font-size:18px;
+    font-weight: 700;
+}
+
+.has-error .control-label {
+    color: #ff0500;
+}
+
+.span-label
+{
+    display: flow-root;
+} 
+
+.img-opac {
+    opacity: 0.3;
+    filter: alpha(opacity=30); /* For IE8 and earlier */
+}
+
+.img-center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.div-nav{
+    text-align: -webkit-right;
+    padding-right: initial;  
+}
+
+li.active {
+    background: gray;
+    font-size:18px;
+    font-weight: 700;
+}
+
+/*
+.div-carregando{
+    position: fixed; 
+    left: 0px; 
+    top: 0px; 
+    background: #000000; 
+    opacity: 0.3; 
+    width:100%; 
+    height:100%; text-shadow: 2px 2px 5px blue !important;
+} */
+
+#div-carregando{
+    position: fixed; 
+    left: 0px; 
+    top: 0px; 
+    background: #000000; 
+    opacity: 0.3; 
+    width:100%; 
+    height:100%; 
+}
+
+#span-carregando{
+    color: white; 
+    width:100%; 
+    height:100%;  
+    font-size:30px; 
+    font-weight: 700;
+    text-shadow: 5px 5px 5px blue;
+    display: inline-block;
+    padding-top: 300px; 
+}

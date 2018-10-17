@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TreinamentoWebModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="branches">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="description" Type="Int32" Nullable="false" />
+    <Property Name="merge_executed" Type="Boolean" Nullable="false" />
+    <Property Name="parent_branch" Type="Int32" Nullable="false" />
+    <Property Name="type" Type="Int32" Nullable="false" />
+    <Property Name="product" Type="Int32" Nullable="false" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="responsibles" Relationship="Self.branche_id" FromRole="branches" ToRole="responsibles" />
+  </EntityType>
+  <EntityType Name="responsibles">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="branche_id" Type="Int32" Nullable="false" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="branches" Relationship="Self.branche_id" FromRole="responsibles" ToRole="branches" />
+    <NavigationProperty Name="users" Relationship="Self.user_id" FromRole="responsibles" ToRole="users" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ldap_uid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ative" Type="Boolean" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="responsibles" Relationship="Self.user_id" FromRole="users" ToRole="responsibles" />
+  </EntityType>
+  <Association Name="branche_id">
+    <End Role="branches" Type="Self.branches" Multiplicity="1" />
+    <End Role="responsibles" Type="Self.responsibles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="branches">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="responsibles">
+        <PropertyRef Name="branche_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="user_id">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="responsibles" Type="Self.responsibles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="responsibles">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="treinamentowebEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="branches" EntityType="Self.branches" />
+    <EntitySet Name="responsibles" EntityType="Self.responsibles" />
+    <EntitySet Name="users" EntityType="Self.users" />
+    <AssociationSet Name="branche_id" Association="Self.branche_id">
+      <End Role="branches" EntitySet="branches" />
+      <End Role="responsibles" EntitySet="responsibles" />
+    </AssociationSet>
+    <AssociationSet Name="user_id" Association="Self.user_id">
+      <End Role="users" EntitySet="users" />
+      <End Role="responsibles" EntitySet="responsibles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
