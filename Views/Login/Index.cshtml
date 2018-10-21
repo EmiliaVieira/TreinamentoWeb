@@ -1,4 +1,5 @@
-﻿
+﻿@model TreinamentoWeb.Models.DataContract.Login
+
 @{
     Layout = null;
 }
@@ -7,7 +8,7 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Index</title>
 
     <!-- manter esta ordem de referências -->
@@ -16,45 +17,49 @@
     <link type="text/css" href="~/Content/login.css" rel="stylesheet">
 </head>
 <body>
-    <div class="colored container">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3 text-center">
-                <span>
-                    <img src="~/Content/Images/logo.png" alt="Landix Icon">
-                </span>
-                <span id="span-titulo">
-                    <h2>Oitavo Exercício!!!</h2>
-                </span>
-            </div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 text-center">
+            <span>
+                <img src="~/Content/Images/logo.png" alt="Landix Icon">
+            </span>
+            <span id="span-titulo" class="h2">11º Exercício!!!</span>
         </div>
-
+    </div>
+    <br><br>
+    <div class="container">
         <div class="row">
-            <form class="col-md-6 col-md-offset-3" id="frm-login" novalidate>
-                <div class="form-group">
-                    <label for="username" class="control-label">Usuário</label>
-                    <input class="form-control" id="username" type="email" placeholder="Email" minlength="3" maxlength="50"
-                           required>
-                    <div class="error-feedback" id="msgusername"></div>
-                </div>
-                <div class="form-group">
-                    <label for="pswd" class="control-label">Senha</label>
-                    <input class="form-control" id="pswd" type="password" placeholder="Senha" minlength="6" maxlength="15"
-                           required>
-                    <div class="error-feedback" id="msgpswd"></div>
-                </div>
-                <div class="row">
-                    <div class="text-center">
-                        <button class="btn btn-outline-dark btn-md" type="submit">Entrar</button>
-                    </div>
+            <div id="login-panel" class="panel panel-default colored col-md-6 col-md-offset-3">
+                <div class="panel-body">
+                    @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.UserName)
+                            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", @minlength = "3", @maxlength = "50" } })
+                            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "has-error" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Password)
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "has-error" })
+                        </div>
+                        <br /><br />
+                        <button class="btn btn-outline-dark btn-md pull-right" type="submit">@TreinamentoWeb.Resources.Strings.entrar</button>
+                    }
+
                 </div>
                 <div class="row" id="alertMsg">
-                    <div class="alert alert-danger hide" id="message1"> </div>
+                    <strong>@Html.ValidationSummary(true, string.Empty, new { @class = "has-error" })</strong>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
     <!-- jquery sempre antes do bootstrap -->
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
 </body>
+
 </html>

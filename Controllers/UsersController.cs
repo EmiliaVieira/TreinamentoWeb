@@ -15,9 +15,21 @@ namespace TreinamentoWeb.Controllers
         private treinamentowebEntities db = new treinamentowebEntities();
 
         // GET: Users
-        public ActionResult Index()
+        public ActionResult Index(string fltName, string fltLdap, string actives, int? page)
         {
-            return View(db.users.ToList());
+            if (Session["user"] != null)
+            {
+                var users = db.users.Where(u => (string.IsNullOrEmpty(fltName) || u.name.Contains(fltName)) &&
+                (string.IsNullOrEmpty(fltLdap) || u.ldap_uid.Contains(fltLdap)) &&
+                (actives == "actives" ? u.ative : (actives != "inactives") || !u.ative)).ToList();
+                
+
+                ViewBag.Count = users.Count;
+                ViewBag.Page = page ?? 1;
+                // return View(users);
+                return View(users.OrderBy(u => u.name).Skip(page.HasValue ? ((page.Value - 1) * 10) : 0).Take(10));
+            }
+            return RedirectToAction("Index", "Login");
         }
 
         // GET: Users/Details/5
