@@ -1,14 +1,13 @@
 ﻿@model TreinamentoWeb.Models.Entity.users
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = Resources.Strings.deleteUser;
 }
 
-<h2>Delete</h2>
+<h2>@Resources.Strings.deleteUser</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>@Resources.Strings.confirmDeleteUser</h3>
 <div>
-    <h4>users</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -40,7 +39,8 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ative)
+           @* @Html.DisplayFor(model => model.ative) *@
+            @(Model.ative ? Html.Raw("<span class='label label-success'>" + Resources.Strings.yes + "</span>") : Html.Raw("<span class='label label-danger'>" + Resources.Strings.no + "</span>"))
         </dd>
 
         <dt>
@@ -56,9 +56,18 @@
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
+     @*   <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </div>    *@
+
+        <a class="btn btn-default" href='@Url.Action("Index", "Users")'>
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <button type="submit" value="Delete" class="btn btn-default">
+        <span class="glyphicon glyphicon-ok"></span>
+    </button>  
+
+
     }
 </div>

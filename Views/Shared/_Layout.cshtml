@@ -25,9 +25,23 @@
                         @Html.ActionLink(Resources.Strings.user, "Index", "Users")
                     </li>
                     <li>
-                        @Html.ActionLink(Resources.Strings.branche, "Index", "Users")
+                        @Html.ActionLink(Resources.Strings.branche, "Index", "Branches")
                     </li>
                 </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a id="logged-username" class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            @(((TreinamentoWeb.Models.Entity.users)Session["user"]).name)
+                            <span class="caret">
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
+                        </ul>
+                    </li>
+                </ul>
+
+
             </div>
         </div>
     </div>

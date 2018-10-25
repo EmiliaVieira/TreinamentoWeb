@@ -1,13 +1,12 @@
 ﻿@model TreinamentoWeb.Models.Entity.users
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = Resources.Strings.detailsUser;
 }
 
-<h2>Details</h2>
+<h2>@Resources.Strings.detailsUser</h2>
 
 <div>
-    <h4>users</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -39,7 +38,8 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ative)
+           @* @Html.DisplayFor(model => model.ative)  *@
+            @(Model.ative ? Html.Raw("<span class='label label-success'>" + Resources.Strings.yes + "</span>") : Html.Raw("<span class='label label-danger'>" + Resources.Strings.no + "</span>"))
         </dd>
 
         <dt>
@@ -53,6 +53,10 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
+    <a class="btn btn-default" href='@Url.Action("Index", "Users")'>
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="btn btn-default" href='@Url.Action("Edit", "Users", new { id = Model.id })'>
+        <span class="glyphicon glyphicon-edit"></span>
+    </a>
 </p>

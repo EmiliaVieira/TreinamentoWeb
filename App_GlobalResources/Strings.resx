@@ -117,8 +117,41 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ative" xml:space="preserve">
+    <value>Ativo</value>
+  </data>
   <data name="branche" xml:space="preserve">
     <value>Braço</value>
+  </data>
+  <data name="confirmDeleteBranche" xml:space="preserve">
+    <value>Deseja realmente deletar o braço?</value>
+  </data>
+  <data name="confirmDeleteUser" xml:space="preserve">
+    <value>Deseja realmente deletar o usuário?</value>
+  </data>
+  <data name="deleteBranche" xml:space="preserve">
+    <value>Deletar Braço</value>
+  </data>
+  <data name="deleteUser" xml:space="preserve">
+    <value>Deletar Usuário</value>
+  </data>
+  <data name="description" xml:space="preserve">
+    <value>Descrição</value>
+  </data>
+  <data name="detailsBranche" xml:space="preserve">
+    <value>Detalhes do Braço</value>
+  </data>
+  <data name="detailsUser" xml:space="preserve">
+    <value>Detalhes do Usuário</value>
+  </data>
+  <data name="editBranche" xml:space="preserve">
+    <value>Editar Braço</value>
+  </data>
+  <data name="editUser" xml:space="preserve">
+    <value>Editar Usuário</value>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>E-mail</value>
   </data>
   <data name="entrar" xml:space="preserve">
     <value>Entrar</value>
@@ -126,13 +159,64 @@
   <data name="invalidEmail" xml:space="preserve">
     <value>E-mail inválido</value>
   </data>
+  <data name="invalidNumber" xml:space="preserve">
+    <value>Número inválido</value>
+  </data>
+  <data name="ldap_uid" xml:space="preserve">
+    <value>LDAP UID</value>
+  </data>
+  <data name="maxLength100" xml:space="preserve">
+    <value>Tamanho máximo 100</value>
+  </data>
+  <data name="maxLength200" xml:space="preserve">
+    <value>Tamanho máximo 200</value>
+  </data>
+  <data name="maxLength50" xml:space="preserve">
+    <value>Tamanho máximo 50</value>
+  </data>
+  <data name="maxLength9" xml:space="preserve">
+    <value>Tamanho máximo 9</value>
+  </data>
+  <data name="merge_executed" xml:space="preserve">
+    <value>Merge executado</value>
+  </data>
+  <data name="name" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="newBranche" xml:space="preserve">
+    <value>Novo Braço</value>
+  </data>
+  <data name="newUser" xml:space="preserve">
+    <value>Novo Usuário</value>
+  </data>
+  <data name="no" xml:space="preserve">
+    <value>Não</value>
+  </data>
+  <data name="parent_branch" xml:space="preserve">
+    <value>Braço pai</value>
+  </data>
   <data name="password" xml:space="preserve">
     <value>Senha</value>
+  </data>
+  <data name="product" xml:space="preserve">
+    <value>Produto</value>
   </data>
   <data name="required" xml:space="preserve">
     <value>*Campo obrigatório</value>
   </data>
+  <data name="save" xml:space="preserve">
+    <value>Salvar</value>
+  </data>
+  <data name="type" xml:space="preserve">
+    <value>Tipo</value>
+  </data>
   <data name="user" xml:space="preserve">
     <value>Usuário</value>
+  </data>
+  <data name="users" xml:space="preserve">
+    <value>Usuários</value>
+  </data>
+  <data name="yes" xml:space="preserve">
+    <value>Sim</value>
   </data>
 </root>

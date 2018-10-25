@@ -1,13 +1,68 @@
 ﻿@model IEnumerable<TreinamentoWeb.Models.Entity.users>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Usuários";
 }
 
-<h2>Index</h2>
-
+<br />
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Resources.Strings.users
+</p>
+
+    <div class="container">
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center panel-heading-custom">Filtros</div>
+                <div class="panel-body">
+                    @using (Html.BeginForm("Index", "Users", FormMethod.Post))  
+                    {
+                        @Html.AntiForgeryToken()
+                    <div class="form-group row">
+                        <div class="form-group col-sm-4">
+                            <label for="fltName" class="label-filter control-label col-md-2">Nome:</label>
+                            <div class="col-md-10">
+                                @Html.TextBox("fltName", string.Empty, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="fltLdap" class="label-filter control-label col-md-2">Ldap Uid:</label>
+                            <div class="col-md-10">
+                                @Html.TextBox("fltLdap", string.Empty, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-sm-4 form-check form-check-inline">
+                            <label class="radio-inline">
+                                @Html.RadioButton("actives", "all", true) Todos
+                            </label>
+                            <label class="radio-inline">
+                                @Html.RadioButton("actives", "actives", false) Ativos
+                            </label>
+                            <label class="radio-inline">
+                                @Html.RadioButton("actives", "inactives", false) Inativos
+                            </label>
+                       </div>
+                    </div>
+                    <div class="row col-sm-offset-10 col-sm-2">
+                        <button class="btn btn-default" data-toggle="tooltip" data-placement="left"
+                                title="Filtrar" type="submit">
+                            <span class="glyphicon glyphicon-filter"></span>
+                        </button>
+                        <a class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Limpar filtros" href='@Url.Action("Index", "Users")'>
+                            <span class="glyphicon glyphicon-refresh"></span>
+                        </a>
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+<br />
+<p class="text-right">
+   @* @Html.ActionLink("Create New", "Create") *@
+    <a class="btn btn-success text-right" href='@Url.Action("Create", "Users")'>
+        <span class="glyphicon glyphicon-plus"></span>
+    </a>
 </p>
 <table class="table">
     <tr>
@@ -23,9 +78,9 @@
         <th>
             @Html.DisplayNameFor(model => model.ative)
         </th>
-        <th>
+       @* <th>
             @Html.DisplayNameFor(model => model.password)
-        </th>
+        </th> *@
         <th></th>
     </tr>
 
@@ -41,17 +96,49 @@
             @Html.DisplayFor(modelItem => item.ldap_uid)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ative)
+            @(item.ative ? Html.Raw("<span class='label label-success'>" + Resources.Strings.yes + "</span>") : Html.Raw("<span class='label label-danger'>" + Resources.Strings.no + "</span>"))
         </td>
+       @* <td> 
+        @Html.DisplayFor(modelItem => item.password)
+    </td> *@
         <td>
-            @Html.DisplayFor(modelItem => item.password)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @* @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
             @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
+            @Html.ActionLink("Delete", "Delete", new { id=item.id }) *@
 
-</table>
+            <a class="btn btn-default" href='@Url.Action("Edit", "Users", new { id=item.id })'>
+                <span class="glyphicon glyphicon-edit"></span>
+            </a>
+            <a class="btn btn-default" href='@Url.Action("Details", "Users", new { id=item.id })'>
+                <span class="glyphicon glyphicon-eye-open"></span>
+            </a>
+            <a class="btn btn-default" href='@Url.Action("Delete", "Users", new { id=item.id })'>
+                <span class="glyphicon glyphicon-trash"></span>
+            </a>
+        </td>
+        </tr>
+    }
+
+    </table>
+
+    <div class="row">
+        <div class="row col-sm-offset-10 col-sm-2 div-nav">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-end">
+                    <li class=@(ViewBag.Page == 1 ? "disabled" : string.Empty)>
+                        <a class="page-link" href=@(ViewBag.Page == 1 ? "#" : Url.Action("Index", "Users", new { page = ViewBag.Page - 1 })) aria-label="Previous" data-page="-1" id="page-previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    </li>
+                    <li class="disabled"><a class="page-link disabled" href="#" id="page-current" data-page="1">@ViewBag.Page</a></li>
+                    <li class=@(ViewBag.Page == (int)Math.Ceiling((decimal)ViewBag.Count / 10) ? "disabled" : string.Empty)>
+                        <a class="page-link" href=@(ViewBag.Page == (int)Math.Ceiling((decimal)ViewBag.Count / 10) ? "#" : Url.Action("Index", "Users", new { page = ViewBag.Page + 1 })) aria-label="Next" data-page="1" id="page-next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>

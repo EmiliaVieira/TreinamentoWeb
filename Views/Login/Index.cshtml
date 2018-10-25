@@ -22,7 +22,7 @@
             <span>
                 <img src="~/Content/Images/logo.png" alt="Landix Icon">
             </span>
-            <span id="span-titulo" class="h2">Décimo Exercício!!!</span>
+            <span id="span-titulo" class="h2">12º Exercício!!!</span>
         </div>
     </div>
     <br><br>
@@ -41,7 +41,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.Password)
-                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.Password, "", new { @class = "has-error" })
                         </div>
                         <br /><br />

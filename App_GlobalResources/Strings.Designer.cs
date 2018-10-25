@@ -61,11 +61,110 @@ namespace TreinamentoWeb.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ativo.
+        /// </summary>
+        public static string ative {
+            get {
+                return ResourceManager.GetString("ative", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Braço.
         /// </summary>
         public static string branche {
             get {
                 return ResourceManager.GetString("branche", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deseja realmente deletar o braço?.
+        /// </summary>
+        public static string confirmDeleteBranche {
+            get {
+                return ResourceManager.GetString("confirmDeleteBranche", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deseja realmente deletar o usuário?.
+        /// </summary>
+        public static string confirmDeleteUser {
+            get {
+                return ResourceManager.GetString("confirmDeleteUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deletar Braço.
+        /// </summary>
+        public static string deleteBranche {
+            get {
+                return ResourceManager.GetString("deleteBranche", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deletar Usuário.
+        /// </summary>
+        public static string deleteUser {
+            get {
+                return ResourceManager.GetString("deleteUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Descrição.
+        /// </summary>
+        public static string description {
+            get {
+                return ResourceManager.GetString("description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Detalhes do Braço.
+        /// </summary>
+        public static string detailsBranche {
+            get {
+                return ResourceManager.GetString("detailsBranche", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Detalhes do Usuário.
+        /// </summary>
+        public static string detailsUser {
+            get {
+                return ResourceManager.GetString("detailsUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Editar Braço.
+        /// </summary>
+        public static string editBranche {
+            get {
+                return ResourceManager.GetString("editBranche", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Editar Usuário.
+        /// </summary>
+        public static string editUser {
+            get {
+                return ResourceManager.GetString("editUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to E-mail.
+        /// </summary>
+        public static string email {
+            get {
+                return ResourceManager.GetString("email", resourceCulture);
             }
         }
         
@@ -88,11 +187,128 @@ namespace TreinamentoWeb.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Número inválido.
+        /// </summary>
+        public static string invalidNumber {
+            get {
+                return ResourceManager.GetString("invalidNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LDAP UID.
+        /// </summary>
+        public static string ldap_uid {
+            get {
+                return ResourceManager.GetString("ldap_uid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tamanho máximo 100.
+        /// </summary>
+        public static string maxLength100 {
+            get {
+                return ResourceManager.GetString("maxLength100", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tamanho máximo 200.
+        /// </summary>
+        public static string maxLength200 {
+            get {
+                return ResourceManager.GetString("maxLength200", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tamanho máximo 50.
+        /// </summary>
+        public static string maxLength50 {
+            get {
+                return ResourceManager.GetString("maxLength50", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tamanho máximo 9.
+        /// </summary>
+        public static string maxLength9 {
+            get {
+                return ResourceManager.GetString("maxLength9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Merge executado.
+        /// </summary>
+        public static string merge_executed {
+            get {
+                return ResourceManager.GetString("merge_executed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nome.
+        /// </summary>
+        public static string name {
+            get {
+                return ResourceManager.GetString("name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Novo Braço.
+        /// </summary>
+        public static string newBranche {
+            get {
+                return ResourceManager.GetString("newBranche", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Novo Usuário.
+        /// </summary>
+        public static string newUser {
+            get {
+                return ResourceManager.GetString("newUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Não.
+        /// </summary>
+        public static string no {
+            get {
+                return ResourceManager.GetString("no", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Braço pai.
+        /// </summary>
+        public static string parent_branch {
+            get {
+                return ResourceManager.GetString("parent_branch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Senha.
         /// </summary>
         public static string password {
             get {
                 return ResourceManager.GetString("password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Produto.
+        /// </summary>
+        public static string product {
+            get {
+                return ResourceManager.GetString("product", resourceCulture);
             }
         }
         
@@ -106,11 +322,47 @@ namespace TreinamentoWeb.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Salvar.
+        /// </summary>
+        public static string save {
+            get {
+                return ResourceManager.GetString("save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tipo.
+        /// </summary>
+        public static string type {
+            get {
+                return ResourceManager.GetString("type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Usuário.
         /// </summary>
         public static string user {
             get {
                 return ResourceManager.GetString("user", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Usuários.
+        /// </summary>
+        public static string users {
+            get {
+                return ResourceManager.GetString("users", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sim.
+        /// </summary>
+        public static string yes {
+            get {
+                return ResourceManager.GetString("yes", resourceCulture);
             }
         }
     }

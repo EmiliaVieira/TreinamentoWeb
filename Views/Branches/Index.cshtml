@@ -1,0 +1,142 @@
+﻿@model IEnumerable<TreinamentoWeb.Models.Entity.branches>
+
+@{
+    ViewBag.Title = "Braços";
+}
+
+<br />
+<p>
+    @Resources.Strings.branche
+</p>
+
+<div class="container">
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-heading text-center panel-heading-custom">Filtros</div>
+            <div class="panel-body">
+                @using (Html.BeginForm("Index", "Branches", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-group row">
+                        <div class="form-group col-sm-4">
+                            <label for="fltName" class="label-filter control-label col-md-2">Nome:</label>
+                            <div class="col-md-10">
+                                @Html.TextBox("fltName", string.Empty, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="fltType" class="label-filter control-label col-md-2">Tipo:</label>
+                            <div class="col-md-10">
+                                @Html.TextBox("fltType", string.Empty, new { @class = "form-control", @type = "number" })
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="fltProduct" class="label-filter control-label col-md-2">Produto:</label>
+                            <div class="col-md-10">
+                                @Html.TextBox("fltProduct", string.Empty, new { @class = "form-control", @type = "number" })
+                            </div>
+                        </div>      
+                    </div>
+                    <div class="row col-sm-offset-10 col-sm-2">
+                        <button class="btn btn-default" data-toggle="tooltip" data-placement="left"
+                                title="Filtrar" type="submit">
+                            <span class="glyphicon glyphicon-filter"></span>
+                        </button>
+                        <a class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Limpar filtros" href='@Url.Action("Index", "Branches")'>
+                            <span class="glyphicon glyphicon-refresh"></span>
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />
+
+<p class="text-right">
+    <a class="btn btn-success text-right" href='@Url.Action("Create", "Branches")'>
+        <span class="glyphicon glyphicon-plus"></span>
+    </a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.merge_executed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.parent_branch)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.product)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <td>
+            @(item.merge_executed ? Html.Raw("<span class='label label-success'>" + Resources.Strings.yes + "</span>") : Html.Raw("<span class='label label-danger'>" + Resources.Strings.no + "</span>"))
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.parent_branch)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.product)
+        </td>
+        <td>
+            <a class="btn btn-default" href='@Url.Action("Edit", "Branches", new { id=item.id })'>
+                <span class="glyphicon glyphicon-edit"></span>
+            </a>
+            <a class="btn btn-default" href='@Url.Action("Details", "Branches", new { id=item.id })'>
+                <span class="glyphicon glyphicon-eye-open"></span>
+            </a>
+            <a class="btn btn-default" href='@Url.Action("Delete", "Branches", new { id=item.id })'>
+                <span class="glyphicon glyphicon-trash"></span>
+            </a>
+
+        </td>
+    </tr>
+}
+
+</table>
+
+<div class="row">
+    <div class="row col-sm-offset-10 col-sm-2 div-nav">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-end">
+                <li class=@(ViewBag.Page == 1 ? "disabled" : string.Empty)>
+                    <a class="page-link" href=@(ViewBag.Page == 1 ? "#" : Url.Action("Index", "Branches", new { page = ViewBag.Page - 1 })) aria-label="Previous" data-page="-1" id="page-previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                </li>
+                <li class="disabled"><a class="page-link disabled" href="#" id="page-current" data-page="1">@ViewBag.Page</a></li>
+                <li class=@(ViewBag.Page == (int)Math.Ceiling((decimal)ViewBag.Count / 10) ? "disabled" : string.Empty)>
+                    <a class="page-link" href=@(ViewBag.Page == (int)Math.Ceiling((decimal)ViewBag.Count / 10) ? "#" : Url.Action("Index", "Branches", new { page = ViewBag.Page + 1 })) aria-label="Next" data-page="1" id="page-next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
