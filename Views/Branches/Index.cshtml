@@ -94,7 +94,8 @@
             @(item.merge_executed ? Html.Raw("<span class='label label-success'>" + Resources.Strings.yes + "</span>") : Html.Raw("<span class='label label-danger'>" + Resources.Strings.no + "</span>"))
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.parent_branch)
+           @* @Html.DisplayFor(modelItem => item.parent_branch) *@
+            @(Html.Raw("<span>" + Html.Action("ParentBrancheName", new { idB = item.parent_branch }).ToString() + "</span>")) 
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.type)

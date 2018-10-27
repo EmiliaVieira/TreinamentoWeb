@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Desenvolvimento\Desktop\web8\TreinamentoWeb\TreinamentoWeb\Models\Entity\TreinamentoWeb.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Usuario\Downloads\web13\TreinamentoWeb\TreinamentoWeb\Models\Entity\TreinamentoWeb.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

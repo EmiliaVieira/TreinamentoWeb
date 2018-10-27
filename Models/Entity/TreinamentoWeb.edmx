@@ -10,7 +10,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="description" Type="int" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="merge_executed" Type="bool" Nullable="false" />
           <Property Name="parent_branch" Type="int" Nullable="false" />
           <Property Name="type" Type="int" Nullable="false" />
@@ -34,7 +34,7 @@
           <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="ldap_uid" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="ative" Type="bool" Nullable="false" />
-          <Property Name="password" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="branche_id">
           <End Role="branches" Type="Self.branches" Multiplicity="1" />
@@ -83,7 +83,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="description" Type="Int32" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="merge_executed" Type="Boolean" Nullable="false" />
           <Property Name="parent_branch" Type="Int32" Nullable="false" />
           <Property Name="type" Type="Int32" Nullable="false" />
@@ -110,7 +110,7 @@
           <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ldap_uid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ative" Type="Boolean" Nullable="false" />
-          <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="responsibles" Relationship="Self.user_id" FromRole="users" ToRole="responsibles" />
         </EntityType>
         <Association Name="branche_id">

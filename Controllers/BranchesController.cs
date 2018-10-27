@@ -131,6 +131,21 @@ namespace TreinamentoWeb.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet, ActionName("Branches")]
+         public JsonResult ListBranches(string searchTerm, int pageSize, int pageNumber)
+        {
+            var branches = db.branches.Where(b => (string.IsNullOrEmpty(searchTerm) || b.name.ToLower().Contains(searchTerm.ToLower()))).OrderBy(b => b.name).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+            return Json(branches, JsonRequestBehavior.AllowGet);
+        }
+
+        //  [HttpGet, ActionName("ParentBrancheName")]
+        [ActionName("ParentBrancheName")]
+        public string ParentBrancheName(int idB)
+        {
+            branches branches = db.branches.Find(idB);
+            return branches.name;
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

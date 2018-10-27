@@ -4,6 +4,17 @@
     ViewBag.Title = Resources.Strings.newBranche;
 }
 
+@section JavaScripts
+{
+    <script>
+        const RESOURCELINKS = {
+            BRANCHES: "@Url.Action("Branches", "Branches")"
+        };
+    </script>
+    @Scripts.Render("~/bundles/branches");
+ }
+
+
 <h2>@Resources.Strings.newBranche</h2>
 
 
@@ -43,7 +54,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.parent_branch, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.parent_branch, new { htmlAttributes = new { @class = "form-control" } })
+               @*@Html.EditorFor(model => model.parent_branch, new { htmlAttributes = new { @class = "form-control" } }) *@ 
+                @Html.DropDownListFor(model => model.parent_branch, Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2" } )
                 @Html.ValidationMessageFor(model => model.parent_branch, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -76,7 +88,3 @@
     <a class="btn btn-default" href='@Url.Action("Index", "Branches")'>
         <span class="glyphicon glyphicon-chevron-left"></span>
     </a></div>
-
-<script src="~/Scripts/jquery-1.10.2.min.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

@@ -34,11 +34,12 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.parent_branch)
+            @Html.DisplayNameFor(model => model.parent_branch)        
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.parent_branch)
+           @* @Html.DisplayFor(model => model.parent_branch) *@
+           @(Html.Raw("<span>" + Html.Action("ParentBrancheName", new { idB = Model.parent_branch }).ToString() + "</span>"))
         </dd>
 
         <dt>
@@ -57,13 +58,13 @@
             @Html.DisplayFor(model => model.product)
         </dd>
 
-    </dl>
-</div>
-<p>
-    <a class="btn btn-default" href='@Url.Action("Index", "Branches")'>
-        <span class="glyphicon glyphicon-chevron-left"></span>
-    </a>
-    <a class="btn btn-default" href='@Url.Action("Edit", "Branches", new { id = Model.id })'>
-        <span class="glyphicon glyphicon-edit"></span>
-    </a>
-</p>
+        </dl>
+    </div>
+    <p>
+        <a class="btn btn-default" href='@Url.Action("Index", "Branches")'>
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="btn btn-default" href='@Url.Action("Edit", "Branches", new { id = Model.id })'>
+            <span class="glyphicon glyphicon-edit"></span>
+        </a>
+    </p>

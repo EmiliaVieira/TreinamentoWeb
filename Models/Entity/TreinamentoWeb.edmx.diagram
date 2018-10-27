@@ -4,9 +4,9 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f36a8779ecd041f79cf274801e9c18b6" Name="Diagram1">
-        <EntityTypeShape EntityType="TreinamentoWebModel.branches" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TreinamentoWebModel.responsibles" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+      <Diagram DiagramId="09241525a57d4b9e989f80bf2e1c1871" Name="Diagram1">
+        <EntityTypeShape EntityType="TreinamentoWebModel.branches" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="TreinamentoWebModel.responsibles" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="TreinamentoWebModel.users" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
         <AssociationConnector Association="TreinamentoWebModel.branche_id" ManuallyRouted="false" />
         <AssociationConnector Association="TreinamentoWebModel.user_id" ManuallyRouted="false" />

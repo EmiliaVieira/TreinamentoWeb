@@ -21,7 +21,7 @@ namespace TreinamentoWeb.Models.Entity
         }
     
         public string name { get; set; }
-        public int description { get; set; }
+        public string description { get; set; }
         public bool merge_executed { get; set; }
         public int parent_branch { get; set; }
         public int type { get; set; }

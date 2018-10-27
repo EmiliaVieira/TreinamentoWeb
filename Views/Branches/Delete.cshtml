@@ -39,7 +39,8 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.parent_branch)
+           @* @Html.DisplayFor(model => model.parent_branch) *@
+            @(Html.Raw("<span>" + Html.Action("ParentBrancheName", new { idB = Model.parent_branch }).ToString() + "</span>"))
         </dd>
 
         <dt>
